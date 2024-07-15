@@ -145,15 +145,22 @@ public class Main {
 
     // Вывод на экран результат фильтра
     private static void showFilterResult(Set<Laptops> laptops, Map<String, Integer> dataFilter) {
+        int count = 0;
         for (Laptops laptop : laptops) {
             if (laptop.hdd >= dataFilter.get("hdd") && laptop.ram >= dataFilter.get("ram") && laptop.price >= dataFilter.get("price")) {
                 System.out.println(laptop);
+                count++;
             }
+
+        }
+        if (count == 0)
+        {
+            System.out.println("В перечне нет ноутбуков, удовлетворяющих параметрам");
         }
     }
 
 
-    //    Проверка, является ли ввод с клавиатуры числом
+    // Проверка, является ли ввод с клавиатуры числом
     private static boolean isNumber(String str) {
         try {
             Integer.parseInt(str);
